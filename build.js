@@ -34,20 +34,27 @@ async function build() {
   const obf = JavaScriptObfuscator.obfuscate(js, {
     compact: true,
     controlFlowFlattening: true,
+    controlFlowFlatteningThreshold: 0.8,
     deadCodeInjection: true,
-    debugProtection: true,
-    disableConsoleOutput: true,
+    deadCodeInjectionThreshold: 0.3,
+    debugProtection: false,
+    disableConsoleOutput: false,
     identifierNamesGenerator: 'hexadecimal',
     numbersToExpressions: true,
     renameGlobals: false,
-    selfDefending: true,
+    selfDefending: false,
     simplify: true,
     splitStrings: true,
+    splitStringsChunkLength: 5,
     stringArray: true,
-    stringArrayEncoding: ['rc4'],
-    stringArrayThreshold: 1,
+    stringArrayEncoding: ['base64'],
+    stringArrayThreshold: 0.8,
+    stringArrayRotate: true,
+    stringArrayShuffle: true,
     transformObjectKeys: true,
-    unicodeEscapeSequence: true
+    unicodeEscapeSequence: true,
+    sourceMap: false,
+    sourceMapMode: 'separate'
   }).getObfuscatedCode();
   writeDist('script.js', obf);
 

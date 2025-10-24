@@ -180,200 +180,18 @@ testimonialDots.forEach((dot, index) => {
 setInterval(nextPortfolioItem, 5000);
 setInterval(nextTestimonial, 6000);
 
-// Update carousel dots for reduced portfolio items
+// Update carousel dots for portfolio items
 document.addEventListener('DOMContentLoaded', () => {
-    // Update portfolio carousel dots to match 2 items
+    // Update portfolio carousel dots to match 5 items
     const portfolioDots = document.querySelectorAll('.carousel-dots .dot');
-    if (portfolioDots.length > 2) {
+    if (portfolioDots.length > 5) {
         // Remove extra dots if they exist
-        for (let i = 2; i < portfolioDots.length; i++) {
+        for (let i = 5; i < portfolioDots.length; i++) {
             portfolioDots[i].remove();
         }
     }
 });
 
-// Enhanced Security Features
-(function() {
-    'use strict';
-    
-    // Disable developer tools and inspect
-    function disableDevTools() {
-        // Disable F12
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12') {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+I (Developer Tools)
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+J (Console)
-            if (e.ctrlKey && e.shiftKey && e.key === 'J') {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+U (View Source)
-            if (e.ctrlKey && e.key === 'u') {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+C (Inspect Element)
-            if (e.ctrlKey && e.shiftKey && e.key === 'C') {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+K (Web Console)
-            if (e.ctrlKey && e.shiftKey && e.key === 'K') {
-                e.preventDefault();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+E (Network)
-            if (e.ctrlKey && e.shiftKey && e.key === 'E') {
-                e.preventDefault();
-                return false;
-            }
-        });
-        
-        // Disable right-click context menu
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable text selection
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable drag and drop
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable copy
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable cut
-        document.addEventListener('cut', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable paste
-        document.addEventListener('paste', function(e) {
-            e.preventDefault();
-            return false;
-        });
-    }
-    
-    // Advanced dev tools detection
-    function detectDevTools() {
-        let devtools = {
-            open: false,
-            orientation: null
-        };
-        
-        const threshold = 160;
-        
-        setInterval(() => {
-            const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-            const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-            
-            if (widthThreshold || heightThreshold) {
-                if (!devtools.open) {
-                    devtools.open = true;
-                    devtools.orientation = widthThreshold ? 'vertical' : 'horizontal';
-                    showSecurityAlert();
-                }
-            } else {
-                devtools.open = false;
-                devtools.orientation = null;
-            }
-        }, 500);
-        
-        // Additional detection methods using debugger
-        setInterval(() => {
-            const start = performance.now();
-            debugger;
-            const end = performance.now();
-            
-            if (end - start > 100) {
-                if (!devtools.open) {
-                    devtools.open = true;
-                    showSecurityAlert();
-                }
-            }
-        }, 1000);
-    }
-    
-    // Show security alert
-    function showSecurityAlert() {
-        document.body.innerHTML = `
-            <div style="
-                display: flex; 
-                justify-content: center; 
-                align-items: center; 
-                height: 100vh; 
-                font-family: Arial, sans-serif; 
-                background: #000; 
-                color: #fff; 
-                text-align: center;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 999999;
-            ">
-                <div>
-                    <h1 style="color: #ff4444; margin-bottom: 20px;">🚨 Security Alert 🚨</h1>
-                    <p style="font-size: 18px; margin-bottom: 15px;">Developer tools detected!</p>
-                    <p style="font-size: 16px; margin-bottom: 20px;">Removing dev tools and refreshing page...</p>
-                    <p style="font-size: 14px; color: #ccc;">Please close developer tools to continue.</p>
-                    <div style="margin-top: 30px;">
-                        <div style="width: 50px; height: 50px; border: 3px solid #333; border-top: 3px solid #ff4444; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        setTimeout(() => {
-            window.location.reload();
-        }, 3000);
-    }
-    
-    // Initialize security
-    disableDevTools();
-    detectDevTools();
-    
-    // Additional protection
-    Object.defineProperty(document, 'hidden', {
-        get: function() {
-            return false;
-        }
-    });
-    
-    // Disable console methods
-    if (window.console) {
-        console.log = function() {};
-        console.warn = function() {};
-        console.error = function() {};
-        console.info = function() {};
-        console.debug = function() {};
-    }
-})();
 
 // Contact Form Handling
 if (contactForm) {
@@ -534,18 +352,18 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Hero title animation (fade in effect instead of typing)
+// Hero title animation with smooth fade and slide
 document.addEventListener('DOMContentLoaded', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         heroTitle.style.opacity = '0';
-        heroTitle.style.transform = 'translateY(20px)';
-        heroTitle.style.transition = 'opacity 1s ease, transform 1s ease';
+        heroTitle.style.transform = 'translateY(30px) scale(0.9)';
+        heroTitle.style.transition = 'all 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
         
         setTimeout(() => {
             heroTitle.style.opacity = '1';
-            heroTitle.style.transform = 'translateY(0)';
-        }, 1000);
+            heroTitle.style.transform = 'translateY(0) scale(1)';
+        }, 800);
     }
 });
 
@@ -649,6 +467,64 @@ function initTooltips() {
 
 // Initialize tooltips when DOM is loaded
 document.addEventListener('DOMContentLoaded', initTooltips);
+
+// Particle background effect
+function createParticles() {
+    const particleContainer = document.createElement('div');
+    particleContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+    `;
+    
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            animation: floatParticle ${Math.random() * 10 + 10}s linear infinite;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation-delay: ${Math.random() * 10}s;
+        `;
+        particleContainer.appendChild(particle);
+    }
+    
+    document.body.appendChild(particleContainer);
+}
+
+// Add particle animation CSS
+const particleStyle = document.createElement('style');
+particleStyle.textContent = `
+    @keyframes floatParticle {
+        0% {
+            transform: translateY(100vh) translateX(0);
+            opacity: 0;
+        }
+        10% {
+            opacity: 1;
+        }
+        90% {
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh) translateX(${Math.random() * 200 - 100}px);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(particleStyle);
+
+// Initialize particles
+document.addEventListener('DOMContentLoaded', createParticles);
 
 // Export functions for potential external use
 window.portfolioCarousel = {
