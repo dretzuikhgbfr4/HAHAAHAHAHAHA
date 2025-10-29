@@ -2,7 +2,3 @@ node_modules
 *.log
 .env*
 server.js
-index.html
-styles.css
-script.js
-resume.pdf
